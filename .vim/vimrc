@@ -1,0 +1,140 @@
+" Jem Bijoux's VIMRC
+" WIP (probably forever) vim settings
+" 
+" This file is divided into several sections:
+
+" Base {{{
+
+set nocompatible 
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+set encoding=utf8 " Set utf8 encoding/en_US
+
+
+
+" }}}
+" Plugins / Pathogen {{{
+
+" Pathogen :: Load up theme vim plugins in the bundle dir
+execute pathogen#infect()
+
+" Airline - Status Bar
+let g:airline#extensions#tabline#enabled = 1 "Display all buffers when only 1
+
+set laststatus=2 " Always show status line
+
+" set timeoutlen=0
+
+set modelines=1   " Set file modeline.
+let g:airline_powerline_fonts = 1 " Make sure alternate font symbols display
+
+
+
+" }}}
+" Syntastic Config {{{
+"
+" Syntax checking / highlighting
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+" }}}
+" Theme / Visual Settings {{{
+ 
+syntax on 		" Syntax Highlighting
+colorscheme onedark
+" let g:airline_theme='onedark'
+
+
+
+" }}}
+" Tab Stop Settings {{{
+
+set expandtab       " tabs are spaces
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces for auto autoindent (>>)
+
+
+
+" }}}
+" Generic VIM Settings {{{ 
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+
+
+" }}}
+" UI Config {{{ 
+
+set relativenumber      " show line numbers
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+filetype indent on      " load filetype-specific indent files
+set showmatch           " highlight matching [{()}
+
+let &colorcolumn="80,".join(range(120,999),",") " Highlight 80 / Past 120
+
+
+
+" }}}
+" Searching {{{
+
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+
+
+" }}}
+" Folding {{{
+
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+
+" nnoremap <space> za 
+set foldmethod=indent   " fold based on indent level 
+
+
+
+" }}}
+" DiffOrig Command {{{
+" 
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+
+
+" }}}
+" Custom Key Mappings {{{
+
+" Open VIMRC for configuration
+nnoremap <leader>, :e $MYVIMRC<cr>        " Open vimrc (change settings)
+nnoremap <leader>. :source $MYVIMRC<cr>   " Apply vimrc settings changes.
+nnoremap <leader>b :NERDTreeToggle<cr>          " Open NerdTree
+
+" }}}
+" 
+" vim:foldmethod=marker:foldlevel=0

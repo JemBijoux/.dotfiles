@@ -10,4 +10,17 @@ This is all a work in progress... (but at least it's versioned and saved)
 ## .vimrc
 Basic vim configuration
 
-Install: $  `ln -s ~/.dotfiles/vim/.vimrc ~`
+Install: $  `ln -s ~/.dotfiles/.vim ~`
+Color theme: One Dark
+
+Plugins
+- nerdtree: a simple file browser sidebar
+- syntastic: syntax highlighting (haven't figured it out yet)
+- vim-airline: A nice status bar for vim
+- vim-gitgutter: shows git changes in the gutter
+- vim-fugitive: lot's of git controls
+- command-t: quick fuzzyfinder opener for files
+  Had problems installing this because of compilationg problems.
+  Just needed to ensure ruby was installed with disable binary, and then
+  reinstalled vim. 
+  (Details: https://github.com/rvm/rvm/issues/3360#issuecomment-87340953)
