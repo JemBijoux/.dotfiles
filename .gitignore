@@ -1,5 +1,3 @@
 # Ignore Mac system finder files
 .DS_Store
 
-# Don't save the packags within bundle yet, those should be cloned manually:
-.vim/bundle

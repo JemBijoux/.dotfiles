@@ -13,7 +13,8 @@ Basic vim configuration
 Install: $  `ln -s ~/.dotfiles/.vim ~`
 Color theme: One Dark
 
-Plugins
+### Plugins
+
 - nerdtree: a simple file browser sidebar
 - syntastic: syntax highlighting (haven't figured it out yet)
 - vim-airline: A nice status bar for vim
@@ -24,3 +25,14 @@ Plugins
   Just needed to ensure ruby was installed with disable binary, and then
   reinstalled vim. 
   (Details: https://github.com/rvm/rvm/issues/3360#issuecomment-87340953)
+
+*Plugins are now installed as git submodules*
+
+There's information on this 
+[vim-casts](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
+post about how to do this, but essentially it comes down to a simple git
+command to pull in all the submodules.
+
+```
+git submodule update --init
+```
