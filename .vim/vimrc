@@ -13,6 +13,10 @@ filetype indent on
 
 set encoding=utf8 " Set utf8 encoding/en_US
 
+" Set our backup / swap / undofile locations
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set undodir=~/.vim/tmp/undo//
 
 
 " }}}
