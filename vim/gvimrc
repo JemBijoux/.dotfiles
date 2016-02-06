@@ -1,0 +1,32 @@
+" Jem Bijoux's gVIMRC - 
+" Desktop Vim Configuration
+"
+" This file is divided into the following sections:
+
+" Display Fonts {{{
+
+" Font Types by platform: these two Stack Overflow questions helped:
+" http://stackoverflow.com/questions/8483371/set-macvim-default-font 
+" http://stackoverflow.com/questions/23259346/fail-to-set-font-in-macvim
+if has('win32')
+    set guifont=Consolas:h12   " Win32.
+elseif has('gui_macvim')
+  set guifont=Fira\ Code\ Light:h12 " Beautiful coding font with ligatures.
+else
+    set guifont=Monospace\ 12  " Linux.
+endif
+
+
+
+" }}}
+" GUI Options {{{
+
+set macligatures
+set guioptions-=r " Remove the right scrollbar
+set guioptions-=L " Remove the left scrollbar (nerdtree)
+
+
+
+" }}}
+" 
+" vim:foldmethod=marker:foldlevel=0

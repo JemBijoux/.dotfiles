@@ -1,3 +1,5 @@
 # Ignore Mac system finder files
 .DS_Store
 
+# Ignore temporary vim dir where we store our backups, undo, etc
+vim/tmp
