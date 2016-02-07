@@ -29,8 +29,7 @@ endif
 " }}}
 " Plugins / Pathogen {{{
 
-" Pathogen :: Load up theme vim plugins in the bundle dir
-execute pathogen#infect()
+runtime ./extensions.vim " Source the plugins from an external file
 
 " Airline - Status Bar
 let g:airline#extensions#tabline#enabled = 1 "Display all buffers when only 1
