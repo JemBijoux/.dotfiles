@@ -31,37 +31,10 @@ endif
 
 runtime ./extensions.vim " Source the plugins from an external file
 
-" Airline - Status Bar
-let g:airline#extensions#tabline#enabled = 1 "Display all buffers when only 1
-
+" Status Bar
 set laststatus=2 " Always show status line
-
 set modelines=1   " Set file modeline.
-let g:airline_powerline_fonts = 1 " Make sure alternate font symbols display
-
-
-
-" }}}
-" Syntastic Config {{{
-
-" Syntax checking / highlighting
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Command-T:
-" Map the escape key for terminal
-" https://github.com/wincent/command-t/blob/master/doc/command-t.txt#L1141
-
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-endif
+" (we also have airline configured in extensions.vim)
 
 
 " }}}
