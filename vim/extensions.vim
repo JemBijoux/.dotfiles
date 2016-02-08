@@ -4,7 +4,7 @@ call plug#begin()
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 Plug 'othree/yajs.vim'

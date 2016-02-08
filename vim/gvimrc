@@ -1,5 +1,5 @@
 " Jem Bijoux's gVIMRC - 
-" Desktop Vim Configuration
+" GUI Vim Configuration
 "
 " This file is divided into the following sections:
 
@@ -21,7 +21,7 @@ endif
 " }}}
 " GUI Options {{{
 
-set macligatures
+set macligatures  " Enable ligatures (if font supports it)
 set guioptions-=r " Remove the right scrollbar
 set guioptions-=L " Remove the left scrollbar (nerdtree)
 
