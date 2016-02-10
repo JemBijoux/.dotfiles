@@ -2,17 +2,15 @@
 
 " Map config files to function keys {{{
 " Open and Write configuration files quickly
-nnoremap <F12> :e ~/.vim/vimrc<CR>
-nnoremap <F11> :source ~/.vim/vimrc <bar> :echo "Sourced .vimrc file"<CR>
+nnoremap <F12> :e ~/.dotfiles/vim/vimrc<CR>
+nnoremap <F11> :e ~/.dotfiles/vim/extensions.vim<CR>
+nnoremap <F10> :e ~/.dotfiles/vim/keybindings.vim<CR>
+nnoremap <F9> :e ~/.dotfiles/vim/gvimrc<CR>
 
-nnoremap <F10> :e ~/.vim/gvimrc<CR>
-nnoremap <F9> :source ~/.vim/gvimrc <bar> :echo "Sourced .gvimrc file"<CR>
-
-nnoremap <F8> :e ~/.vim/extensions.vim<CR>
-nnoremap <F7> :source ~/.vim/extensions.vim <bar> :echo "Sourced plugin file"<CR>
-
-nnoremap <F6> :e ~/.vim/keybindings.vim<CR>
-nnoremap <F5> :source ~/.vim/keybindings.vim <bar> :echo "Sourced Keymap file"<CR>
+nnoremap <S-F12> :source ~/.dotfiles/vim/vimrc<CR> <bar> :echo "Sourced .vimrc file"<CR>
+nnoremap <S-F11> :source ~/.dotfiles/vim/extensions.vim <bar> :echo "Sourced plugin file"<CR>
+nnoremap <S-F10> :source ~/.dotfiles/vim/keybindings.vim <bar> :echo "Sourced Keymap file"<CR>
+nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc file"<CR>
 
 " }}}
 " Disable Arrow Keys (hardcore mode) {{{

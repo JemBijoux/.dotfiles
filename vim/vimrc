@@ -36,6 +36,7 @@ set history=1000 " Keep a longer history
 set hidden  " Allow modified buffers to sit in the background:u
 
 runtime macros/matchit.vim  " % key also matches if/else/end/xml tags
+:set shortmess=a " Display shorter messages / hit enter prompts.
 
 
 " }}}
@@ -79,6 +80,7 @@ set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set showmatch           " highlight matching [{()}
 set listchars=tab:>-,trail:·,eol:¶ " Trailing characters to display
+set backspace=indent,eol,start " Backspace over end of lines and past start
 
 let &colorcolumn="80,".join(range(120,999),",") " Highlight 80 / Past 120
 
