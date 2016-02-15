@@ -1,21 +1,21 @@
 " Jem Bijoux's VIMRC
 " Basic VIM Configuration
-" WIP (probably forever) 
-" 
+" WIP (probably forever)
+"
 " This file is divided into the following sections:
 
 " Base {{{
 
 " Disable Vi compatability, not _completely_ pointless...
 " http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
-set nocompatible 
+set nocompatible
 set encoding=utf8 " Set utf8 encoding/en_US
 
 " Enable filetype plugins, indenting, syntax
 syntax on
 filetype on
 filetype plugin on
-filetype indent on " load filetype-specific indent files 
+filetype indent on " load filetype-specific indent files
 
 
 " Set our backup / swap / undofile locations
@@ -36,7 +36,7 @@ set history=1000 " Keep a longer history
 set hidden  " Allow modified buffers to sit in the background:u
 
 runtime macros/matchit.vim  " % key also matches if/else/end/xml tags
-:set shortmess=a " Display shorter messages / hit enter prompts.
+set shortmess=a " Display shorter messages / hit enter prompts.
 
 
 " }}}
@@ -53,7 +53,7 @@ set modelines=1   " Set file modeline.
 
 " }}}
 " Theme / Visual Settings {{{
- 
+
 syntax on 		" Syntax Highlighting
 colorscheme onedark
 
@@ -73,16 +73,18 @@ set shiftwidth=2    " number of spaces for auto autoindent (>>)
 
 
 " }}}
-" UI Config {{{ 
+" UI Config {{{
 
 set relativenumber      " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set showmatch           " highlight matching [{()}
-set listchars=tab:>-,trail:·,eol:¶ " Trailing characters to display
+set listchars=tab:▸\ ,trail:·,eol:¬" Trailing characters to display
+set list                " Display said end of line characters
 set backspace=indent,eol,start " Backspace over end of lines and past start
-
 let &colorcolumn="80,".join(range(120,999),",") " Highlight 80 / Past 120
+set splitbelow " New horizontal splits open below"
+set splitright " New vertical splits open on the right"
 
 
 
@@ -103,23 +105,23 @@ set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
-set foldmethod=indent   " fold based on indent level 
+set foldmethod=indent   " fold based on indent level
 
 
 
 " }}}
 " DiffOrig Command {{{
-" 
+"
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 
 
 " }}}
-" 
+"
 " vim:foldmethod=marker:foldlevel=0
