@@ -15,14 +15,29 @@ nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc fil
 " }}}
 " Disable Arrow Keys (hardcore mode) {{{
 
-inoremap  <Up>     :echo "Don't be ridiculous; use h/j/k/l instead"<cr> 
-inoremap  <Down>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
-inoremap  <Left>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
-inoremap  <Right>  :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 noremap   <Up>     :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 noremap   <Down>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 noremap   <Left>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 noremap   <Right>  :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
+
+" Super pro mode: (not all there yet...)
+" inoremap  <Up>     :echo "Don't be ridiculous; use h/j/k/l instead"<cr> 
+" inoremap  <Down>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
+" inoremap  <Left>   :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
+" inoremap  <Right>  :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
+
+
+" }}}
+" Buffer / Window / Tab Management {{{
+
+nnoremap ˙ :bp<cr>  " Change to previous buffer
+nnoremap ¬ :bn<cr>  " Change to next buffer
+
+nnoremap <c-h> :wincmd h<cr>  " Change to left window
+nnoremap <c-j> :wincmd j<cr>  " Change to window below
+nnoremap <c-k> :wincmd k<cr>  " Change to window above
+nnoremap <c-l> :wincmd l<cr>  " Change to right window
+
 
 " }}}
 " Custom Key Mappings {{{

@@ -19,6 +19,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'rking/ag.vim'
 
 " BuildYCM Function{{{
 function! BuildYCM(info)
@@ -41,7 +42,7 @@ call plug#end()
 
 " Misc / Single Settings {{{
 
-let g:mustache_abbreviations = 1 " Turn on mustach abbreviations
+" let g:mustache_abbreviations = 1 " Turn on mustach abbreviations
 
 
 
@@ -53,6 +54,8 @@ let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1 " Make sure alternate font symbols display
 let g:airline#extensions#tabline#enabled = 1 "Display all buffers when only 1
 
+let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer # in tab
+let g:airline#extensions#tabline#formatter = 'unique_tail' " Show unique file path
 
 
 " }}}

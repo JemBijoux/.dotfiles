@@ -34,10 +34,11 @@ set wildmenu " :command tab-completion shows additional options
 set wildmode=list:longest " command completion acts more like shell
 set history=1000 " Keep a longer history
 set hidden  " Allow modified buffers to sit in the background:u
+set nowrap " Don't wrap text by default"
 
 runtime macros/matchit.vim  " % key also matches if/else/end/xml tags
 set shortmess=a " Display shorter messages / hit enter prompts.
-
+let loaded_netrwPlugin = 1 " Disable the netrwPlugin (we use nerdtree)
 
 " }}}
 " Plugins {{{
