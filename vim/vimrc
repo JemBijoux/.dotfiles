@@ -25,7 +25,12 @@ set undodir=~/.vim/tmp/undo//
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse+=a
+endif
+
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 set vb       " Use Visual Bell (if available). Make no noise!
