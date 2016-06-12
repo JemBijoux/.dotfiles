@@ -1,5 +1,12 @@
 " VIM Keybindings
 
+" Unbind space (avoid the moving right)
+" nnoremap <Space> <nop>
+
+nnoremap <SPACE> <Nop>
+" Bind space to the leader key
+let mapleader = "\<Space>"
+
 " Map config files to function keys {{{
 " Open and Write configuration files quickly
 nnoremap <F12> :e ~/.dotfiles/vim/vimrc<CR>
@@ -33,23 +40,62 @@ noremap   <Right>  :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 nnoremap ˙ :bp<cr>  " Change to previous buffer
 nnoremap ¬ :bn<cr>  " Change to next buffer
 
-nnoremap <c-h> :wincmd h<cr>  " Change to left window
-nnoremap <c-j> :wincmd j<cr>  " Change to window below
-nnoremap <c-k> :wincmd k<cr>  " Change to window above
-nnoremap <c-l> :wincmd l<cr>  " Change to right window
+" Use ctrl-arrow keys to jump around windows.
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
 
+nnoremap <leader>h <C-W>h
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
+
+" }}}
+" Change Color Schemes {{{
+
+nnoremap <F2> :set background=dark<cr>
+nnoremap <F3> :set background=light<cr>
 
 " }}}
 " Custom Key Mappings {{{
 
-nnoremap <leader>b :NERDTreeToggle<cr>    " Toggle NerdTree
-nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
-nnoremap <leader>s :write<CR>             " Save current file
-nnoremap <silent> <leader>l :set nolist!<CR>  " Toggle invisible characters
+" Bind jj to escape.
+inoremap jj <esc>
+
+" Toggle NerdTree
+nnoremap <leader>b :NERDTreeToggle<cr>
+
+" Save current file
+nnoremap <leader>s :write<CR><bar> :echo "File Saved:" expand('%:t')<CR>
+
+" Git Futigive Commands  (git status)
+nnoremap <leader>q :Gstatus<CR><bar> :echo "Showing Git Status"<CR>
+nnoremap <leader>w :Gwrite<CR><bar> :echo "Git added:" expand('%:t')<CR>
+nnoremap <leader>e :Gcommit<CR><bar> :echo "Git Commit..."<CR>
+
+" Copy and paste from system buffer
+nnoremap <leader>p "+p
+vnoremap <leader>c "+y
+
+" Make a pane just a little bigger:
+nnoremap <leader>+ :resize+10<CR>
 
 " Make scrolling just a little faster.
 nnoremap <C-y> 3<C-y>
 nnoremap <C-e> 3<C-e>
+
+" Make horizontal scrolling a little faster
+nnoremap zl 3zl " Scroll left
+nnoremap zh 3zh " Scroll left
+
+" Swap ' and ` (for navigating to marks)
+nnoremap ' `
+nnoremap ` ''
+
+" Swap ; and : for easier commands
+nnoremap ; :
+nnoremap : ;
 
 " }}}
 " Moving entire lines up/down {{{

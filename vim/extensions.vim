@@ -19,6 +19,7 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-repeat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 " Plug 'csscomb/vim-csscomb' " Applies more fomatting than I want normally...

@@ -1,9 +1,8 @@
 " Jem Bijoux's VIMRC
 " Basic VIM Configuration
 " WIP (probably forever)
-"
-" This file is divided into the following sections:
 
+" This file is divided into the following sections:
 " Base {{{
 
 " Disable Vi compatability, not _completely_ pointless...
@@ -34,12 +33,16 @@ if &term =~ '^screen'
 endif
 
 set vb       " Use Visual Bell (if available). Make no noise!
-set autoread " Reload files changed outside of vim
+set autoread " Check when files changed outside of vim
 set wildmenu " :command tab-completion shows additional options
 set wildmode=list:longest " command completion acts more like shell
 set history=1000 " Keep a longer history
 set hidden  " Allow modified buffers to sit in the background:u
 set nowrap " Don't wrap text by default"
+set sidescroll=1 " Scroll horizontally in a sane way
+
+" Stop from automatically opening new comment lines
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 runtime macros/matchit.vim  " % key also matches if/else/end/xml tags
 set shortmess=a " Display shorter messages / hit enter prompts.
@@ -61,7 +64,9 @@ set modelines=1   " Set file modeline.
 " Theme / Visual Settings {{{
 
 syntax on 		" Syntax Highlighting
-colorscheme onedark
+let g:solarized_visibility='low'
+set background=dark
+colorscheme solarized
 
 " Make mustache/handlebars the default filetype for html
 au BufRead,BufNewFile *.html set filetype=mustache
