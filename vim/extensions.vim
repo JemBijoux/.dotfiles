@@ -28,6 +28,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'rking/ag.vim'
+Plug 'easymotion/vim-easymotion'
 
 " BuildYCM Function{{{
 function! BuildYCM(info)

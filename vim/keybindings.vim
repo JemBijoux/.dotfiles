@@ -78,6 +78,9 @@ nnoremap <leader>e :Gcommit<CR><bar> :echo "Git Commit..."<CR>
 nnoremap <leader>p "+p
 vnoremap <leader>c "+y
 
+" Remove a buffer
+nnoremap <leader>x :bd<CR>
+
 " Make a pane just a little bigger:
 nnoremap <leader>+ :resize+10<CR>
 
@@ -96,6 +99,8 @@ nnoremap ` ''
 " Swap ; and : for easier commands
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " }}}
 " Moving entire lines up/down {{{
