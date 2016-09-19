@@ -50,11 +50,12 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export MAMP_PHP=/Applications/MAMP/bin/php/php5.3.29/bin
-export PATH="$MAMP_PHP:$PATH:/Applications/MAMP/Library/bin"
+# Mamp PHP in Path (for wp-cli)
+# export MAMP_PHP=/Applications/MAMP/bin/php/php5.3.29/bin
+# export PATH="$MAMP_PHP:$PATH:/Applications/MAMP/Library/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,9 +84,13 @@ source $ZSH/oh-my-zsh.sh
 alias ghci="docker run -ti --rm -v `pwd`:`pwd` -w `pwd` haskell"
 
 # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add NVM to PATH
 export NVM_DIR="/Users/jem/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# Homebrew's sbin needs to be in path
+export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

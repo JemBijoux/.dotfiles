@@ -2,33 +2,44 @@
 
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'ap/vim-buftabline'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'rking/ag.vim'
 
 " Javascript Plugins
-" Plug 'othree/yajs.vim'
 Plug 'moll/vim-node'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json'
-" Plug 'mustache/vim-mustache-handlebars'
-Plug 'sheerun/vim-polyglot'
 
-Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-repeat'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-surround'
+" Plug 'mustache/vim-mustache-handlebars'
+" Plug 'sheerun/vim-polyglot'
+
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'csscomb/vim-csscomb' " Applies more fomatting than I want normally...
 Plug 'hail2u/vim-css3-syntax'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-haml'
+" Plug 'Raimondi/delimitMate'
+" Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'rking/ag.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'lambdatoast/elm.vim'
+" Plug 'elmcast/elm-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " BuildYCM Function{{{
 function! BuildYCM(info)
@@ -80,16 +91,27 @@ let g:syntastic_loc_list_height = 5 " Error location list is 5 lines high.
 let g:syntastic_javascript_checkers = ['eslint']
 
 " }}}
-" CTRL-P {{{
+" CTRL-P / FZF {{{
 
-let g:ctrlp_working_path_mode = 'w' " Start ctrl-p from cwd instead of file dir
+" let g:ctrlp_working_path_mode = 'w' " Start ctrl-p from cwd instead of file dir
 
 " Ignore files in .gitignore lists
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+nnoremap <C-p> :FZF<CR>
+inoremap <C-p> <ESC>:FZF<CR>i
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+
+" }}}
 " Git Fugitive {{{
 
 " Default to vertical split for diffing
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_core_mode = 'external_command'
+" Uncomment this to see editorconfig data on file load
+" let g:EditorConfig_verbose=1
 
 if exists(':Gdiff')
   set diffopt+=vertical

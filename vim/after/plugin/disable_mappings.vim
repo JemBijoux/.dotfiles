@@ -3,3 +3,4 @@
 unmap <leader>hs
 unmap <leader>hr
 unmap <leader>hp
+unmap <leader>hu

@@ -14,7 +14,7 @@ set encoding=utf8 " Set utf8 encoding/en_US
 syntax on
 filetype on
 filetype plugin on
-filetype indent on " load filetype-specific indent files
+filetype plugin indent on " load filetype-specific indent files
 
 
 " Set our backup / swap / undofile locations
@@ -77,6 +77,7 @@ au BufRead,BufNewFile *.html set filetype=mustache
 " Tab Stop Settings {{{
 
 set expandtab       " tabs are spaces
+set autoindent
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set shiftwidth=2    " number of spaces for auto autoindent (>>)
@@ -87,6 +88,7 @@ set shiftwidth=2    " number of spaces for auto autoindent (>>)
 " UI Config {{{
 
 set relativenumber      " show line numbers
+set number              " but still show current linenumber
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set showmatch           " highlight matching [{()}
