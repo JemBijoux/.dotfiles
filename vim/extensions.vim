@@ -67,6 +67,13 @@ call plug#end()
 
 
 " }}}
+" Buffer Tab Line {{{
+" Buffers displayed in the tab line (instead of tabs) across top of screen
+
+let g:buftabline_show = 1
+let g:buftabline_numbers = 1
+
+" }}}
 " Airline {{{
 " Statusbar / extra UI display
 
