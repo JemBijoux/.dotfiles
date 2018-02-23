@@ -5,6 +5,9 @@
 " This file is divided into the following sections:
 " Base {{{
 
+runtime ./extensions.vim " Source the plugins from an external file
+runtime ./keybindings.vim " Source the plugins from an external file
+
 " Disable Vi compatability, not _completely_ pointless...
 " http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
 set nocompatible
@@ -14,7 +17,8 @@ set encoding=utf8 " Set utf8 encoding/en_US
 syntax on
 filetype on
 filetype plugin on
-filetype plugin indent on " load filetype-specific indent files
+" load filetype-specific indent files
+filetype plugin indent on
 
 
 " Set our backup / swap / undofile locations
@@ -51,9 +55,6 @@ let loaded_netrwPlugin = 1 " Disable the netrwPlugin (we use nerdtree)
 " }}}
 " Plugins {{{
 
-runtime ./extensions.vim " Source the plugins from an external file
-runtime ./keybindings.vim " Source the plugins from an external file
-
 " Status Bar
 set laststatus=2 " Always show status line
 set modelines=1   " Set file modeline.
@@ -66,7 +67,8 @@ set modelines=1   " Set file modeline.
 syntax on 		" Syntax Highlighting
 " let g:solarized_visibility='low'
 " set background=dark
-colorscheme base16-flat
+colorscheme base16-flat-dark
+" let base16colorspace=256
 
 " Make mustache/handlebars the default filetype for html
 au BufRead,BufNewFile *.html set filetype=mustache
@@ -120,7 +122,30 @@ set foldnestmax=10      " 10 nested fold max
 
 set foldmethod=indent   " fold based on indent level
 
+" }}}
+" Ultisnips (Snippets) {{{
 
+" Setting the next/prev completion for YCM frees it up for UltiSnips
+let g:ycm_key_list_select_completion = ['<c-j>']
+let g:ycm_key_list_previous_completion = ['<c-k>']
+
+let g:UltiSnipsEditSplit='context'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+let g:UltiSnipsEditSplit= "context"
+
+
+" }}}
+" Prettier (JS Formatter) {{{
+autocmd FileType javascript setlocal formatprg=./node_modules/.bin/prettier\ --stdin\ --single-quote\ --trailing-comma=all
+autocmd FileType javascript.jsx setlocal formatprg=./node_modules/.bin/prettier\ --stdin\ --single-quote\ --trailing-comma=all
+nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 
 " }}}
 " DiffOrig Command {{{
@@ -137,4 +162,8 @@ endif
 
 " }}}
 "
+
+highlight Comment cterm=italic
+
+let g:syntastic_python_checkers = ['flake8']
 " vim:foldmethod=marker:foldlevel=0

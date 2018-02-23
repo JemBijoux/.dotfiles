@@ -1,0 +1,93 @@
+snippet wtf "wut"
+omg wtf bbq
+endsnippet
+
+snippet imp "Import statement"
+import ${1:{ ${2:module} }} from '${3:./path}'
+endsnippet
+
+snippet glam "Glamorous Component"
+const $1 = glamorous.$2({
+	$0
+})
+endsnippet
+
+snippet rfc "React Functional Component"
+const ${1:name} = ${2:( $3 )} => (
+	$0
+)
+endsnippet
+
+snippet acr "Action Creator"
+const $1 = ($2) => ({
+  type: $3,
+  $2,
+})
+endsnippet
+
+snippet rnfc "React NonFunctional Component"
+class $1 extends ${2:Component} {
+  constructor(props) {
+    super(props)
+		$3
+  }
+
+	render() {
+		return (
+			$0
+		) 
+	}
+}
+endsnippet
+
+snippet rc "Tag"
+<${1:div}>$0</${1/^([^\s]+).*/$1/}>
+endsnippet
+
+snippet mstp "mapStateToProps"
+const mapStateToProps = ${1:state} => {
+  return {
+		$0
+  };
+};
+endsnippet
+
+snippet mdtp "mapDispatchToProps"
+const mapDispatchToProps = ${1:dispatch} => {
+  return {
+		$0
+  };
+};
+endsnippet
+
+snippet om "Object Method"
+${1:method}: ${2:args} => {
+	$0
+}
+endsnippet
+
+snippet const "Define a constant"
+const ${1:name} = "$1"
+endsnippet
+
+snippet cb "Comments Block"
+/**
+ * $1
+ *
+ * $2
+ **/
+endsnippet
+
+snippet describe "Jest Describe Block"
+describe('$1', () => {
+	$2
+})
+endsnippet
+
+snippet test "Jest Test Block"
+test('$1', () => {
+	$2
+})
+endsnippet
+
+

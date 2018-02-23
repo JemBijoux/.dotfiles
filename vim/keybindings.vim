@@ -19,6 +19,17 @@ nnoremap <S-F11> :source ~/.dotfiles/vim/extensions.vim <bar> :echo "Sourced plu
 nnoremap <S-F10> :source ~/.dotfiles/vim/keybindings.vim <bar> :echo "Sourced Keymap file"<CR>
 nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc file"<CR>
 
+" Put the gdiff into a vertical split
+nnoremap <leader>d v;Gdiff kc
+
+" GitGutter commands to navigate hunks
+" if exists(':GitGutterNextHunk')
+nnoremap <leader>. :GitGutterNextHunk<cr>
+" endif
+" if exists(':GitGutterPrevHunk')
+nnoremap <leader>, :GitGutterPrevHunk<cr>
+" endif
+
 " }}}
 " Disable Arrow Keys (hardcore mode) {{{
 
@@ -40,6 +51,9 @@ noremap   <Right>  :echo "Don't be ridiculous; use h/j/k/l instead"<cr>
 nnoremap ˙ :bp<cr>  " Change to previous buffer
 nnoremap ¬ :bn<cr>  " Change to next buffer
 
+nnoremap <leader>n :bp<cr>  " Change to previous buffer
+nnoremap <leader>m :bn<cr>  " Change to next buffer
+
 " Use ctrl-arrow keys to jump around windows.
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
@@ -54,8 +68,14 @@ nnoremap <leader>l <C-W>l
 " }}}
 " Change Color Schemes {{{
 
-nnoremap <F2> :set background=dark<cr>
-nnoremap <F3> :set background=light<cr>
+" nnoremap <F2> :set background=dark<cr>
+" nnoremap <F3> :set background=light<cr>
+
+nnoremap <F2> :colorscheme base16-flat-dark<cr>
+nnoremap <F3> :colorscheme base16-flat-light<cr>
+
+" Set filetype to jsx (useful for opening javascript files that have it)
+nnoremap <F4> :set ft=javascript.jsx<cr>
 
 " }}}
 " Custom Key Mappings {{{
@@ -71,7 +91,7 @@ nnoremap <leader>s :write<CR><bar> :echo "File Saved:" expand('%:t')<CR>
 
 " Git Futigive Commands  (git status)
 nnoremap <leader>q :Gstatus<CR><bar> :echo "Showing Git Status"<CR>
-nnoremap <leader>w :Gwrite<CR><bar> :echo "Git added:" expand('%:t')<CR>
+nnoremap <leader>w :Gwrite<CR><bar>:w<CR><bar> :echo "Git added:" expand('%:t')<CR>
 nnoremap <leader>e :Gcommit<CR><bar> :echo "Git Commit..."<CR>
 
 " Copy and paste from system buffer
@@ -84,13 +104,16 @@ nnoremap <leader>x :bd<CR>
 " Make a pane just a little bigger:
 nnoremap <leader>+ :resize+10<CR>
 
+" Toggle Indent Guides
+nnoremap <leader>t :IndentGuidesToggle<CR>
+
 " Make scrolling just a little faster.
 nnoremap <C-y> 3<C-y>
 nnoremap <C-e> 3<C-e>
 
 " Make horizontal scrolling a little faster
-nnoremap zl 3zl " Scroll left
-nnoremap zh 3zh " Scroll left
+nnoremap zl 10zl " Scroll left
+nnoremap zh 10zh " Scroll left
 
 " Swap ' and ` (for navigating to marks)
 nnoremap ' `
@@ -101,6 +124,25 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+" Useful to reselect pasted text
+" See: http://vim.wikia.com/wiki/Selecting_your_pasted_text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" }}}
+" Jump to buffer ordinals {{{
+
+" Jump to buffer ordinals (not buffer number) with leader
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
 
 " }}}
 " Moving entire lines up/down {{{

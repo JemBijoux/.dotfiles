@@ -2,42 +2,62 @@
 
 call plug#begin()
 
-" Plug 'vim-airline/vim-airline'
 Plug 'ap/vim-buftabline'
+" Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
+
+" Git tooling
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
+
+" File Browser
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'rking/ag.vim'
+Plug 'jparise/vim-graphql'
+
+" Plug 'flowtype/vim-flow'
 
 " Javascript Plugins
 Plug 'moll/vim-node'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'elzr/vim-json'
+Plug 'kchmck/vim-coffee-script'
 
-" Plug 'mustache/vim-mustache-handlebars'
-" Plug 'sheerun/vim-polyglot'
+" Python Plugins
+" Plug 'klen/python-mode'
 
-" Plug 'ctrlpvim/ctrlp.vim'
+" Syntax checking (eslint, etc)
+" Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+
+" ctags Helpers
+Plug 'craigemery/vim-autotag'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" General languages
+Plug 'sheerun/vim-polyglot'
+
+Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'csscomb/vim-csscomb' " Applies more fomatting than I want normally...
-Plug 'hail2u/vim-css3-syntax'
-" Plug 'Raimondi/delimitMate'
-" Plug 'tpope/vim-haml'
+Plug 'junegunn/fzf.vim'
+
+Plug 'Shougo/unite.vim'
+
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'lambdatoast/elm.vim'
+" Plug 'lambdatoast/elm.vim'
 " Plug 'elmcast/elm-vim'
 Plug 'editorconfig/editorconfig-vim'
 
@@ -63,8 +83,13 @@ call plug#end()
 " Misc / Single Settings {{{
 
 " let g:mustache_abbreviations = 1 " Turn on mustach abbreviations
+let NERDTreeShowLineNumbers=1
 
-
+" Indent guides
+let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=10
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=blue    ctermbg=0
+let g:indent_guides_enable_on_vim_startup = 1
 
 " }}}
 " Buffer Tab Line {{{
@@ -72,6 +97,9 @@ call plug#end()
 
 let g:buftabline_show = 1
 let g:buftabline_numbers = 1
+
+hi link BufTabLineCurrent PmenuSel
+hi link BufTabLineActive TabLineSel
 
 " }}}
 " Airline {{{
@@ -120,9 +148,10 @@ let g:EditorConfig_core_mode = 'external_command'
 " Uncomment this to see editorconfig data on file load
 " let g:EditorConfig_verbose=1
 
-if exists(':Gdiff')
-  set diffopt+=vertical
-endif
+" Gdiff is from vim fugitive
+" if exists(':Gdiff')
+" set diffopt+=vertical
+" endif
 
 " }}}
 " vim:foldmethod=marker:foldlevel=0
