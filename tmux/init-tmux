@@ -1,0 +1,6 @@
+rename-session 'overlay'
+rename-window 'overlay'
+new-session -s 'webapp' -n 'running' -c '~/Sites/swu/web-app'
+new-window -n 'coding' -c '~/Sites/swu/web-app'
+new-session -s 'static' -n 'running' -c '~/Sites/swu/static-app'
+new-window -n 'coding' -c '~/Sites/swu/static-app'
