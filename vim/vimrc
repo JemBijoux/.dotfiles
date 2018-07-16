@@ -67,7 +67,7 @@ set modelines=1   " Set file modeline.
 syntax on 		" Syntax Highlighting
 " let g:solarized_visibility='low'
 " set background=dark
-colorscheme base16-flat-dark
+" colorscheme base16-flat-dark
 " let base16colorspace=256
 
 " Make mustache/handlebars the default filetype for html
