@@ -21,7 +21,9 @@ DEFAULT_USER="jem"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
+# A little something for auto-setting the term title
+echo -n -e "\033]0;  \007"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -46,7 +48,7 @@ DEFAULT_USER="jem"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode osx z)
 
 # User configuration
 
@@ -63,6 +65,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='vim'
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
@@ -80,8 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# alias zshconfig="vim ~/.zshrc"
+alias zshc="vim ~/.zshrc"
 alias ghci="docker run -ti --rm -v `pwd`:`pwd` -w `pwd` haskell"
+alias tma="tmux attach"
+alias nukeit="rm -rf ./node_modules && yarn install"
 
 # Add RVM to PATH for scripting
 # export PATH="$PATH:$HOME/.rvm/bin"
@@ -94,3 +99,16 @@ export NVM_DIR="/Users/jem/.nvm"
 export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Working with javascript and package managers
+alias yn="yarn run"
+alias nr="npm run"
+# Using `hub` with git
+eval "$(hub alias -s)"
+# Source the completions in `~/.zsh/completions/_hub`
+# https://github.com/github/hub/tree/master/etc
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
+
+# ZSH Autocompletions, installed separately
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
