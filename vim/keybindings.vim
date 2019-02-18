@@ -22,13 +22,19 @@ nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc fil
 " Put the gdiff into a vertical split
 nnoremap <leader>d v;Gdiff kc
 
-" GitGutter commands to navigate hunks
-" if exists(':GitGutterNextHunk')
-nnoremap <leader>. :GitGutterNextHunk<cr>
-" endif
-" if exists(':GitGutterPrevHunk')
-nnoremap <leader>, :GitGutterPrevHunk<cr>
-" endif
+" GITGUTTER commands to navigate hunks
+" Jump to next / prev hunks
+nmap <leader>. <Plug>GitGutterNextHunk
+nmap <leader>, <Plug>GitGutterPrevHunk
+" Stage/undo/preview hunks
+nmap <Leader>gs <Plug>GitGutterStageHunk
+nmap <Leader>gu <Plug>GitGutterUndoHunk
+nmap <Leader>gp <Plug>GitGutterPreviewHunk
+" Hunk Text Objects
+omap ih <Plug>GitGutterTextObjectInnerPending
+omap ah <Plug>GitGutterTextObjectOuterPending
+xmap ih <Plug>GitGutterTextObjectInnerVisual
+xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 " }}}
 " Disable Arrow Keys (hardcore mode) {{{
