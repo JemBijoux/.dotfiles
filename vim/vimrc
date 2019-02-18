@@ -143,9 +143,11 @@ let g:UltiSnipsEditSplit= "context"
 
 " }}}
 " Prettier (JS Formatter) {{{
-autocmd FileType javascript setlocal formatprg=./node_modules/.bin/prettier\ --stdin\ --single-quote\ --trailing-comma=all
-autocmd FileType javascript.jsx setlocal formatprg=./node_modules/.bin/prettier\ --stdin\ --single-quote\ --trailing-comma=all
-nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+" }}}
+" Typescript {{{
+
+autocmd BufNewFile,BufReadPost *.tsx set filetype=typescript.jsx
+autocmd BufNewFile,BufReadPost *.ts set filetype=typescript
 
 " }}}
 " DiffOrig Command {{{

@@ -20,7 +20,8 @@ nnoremap <S-F10> :source ~/.dotfiles/vim/keybindings.vim <bar> :echo "Sourced Ke
 nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc file"<CR>
 
 " Put the gdiff into a vertical split
-nnoremap <leader>d v;Gdiff kc
+nnoremap <leader>d v;Gdiff
+ kc
 
 " GITGUTTER commands to navigate hunks
 " Jump to next / prev hunks
@@ -71,6 +72,11 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
 
+cnoremap <leader>h <C-W>h
+cnoremap <leader>j <C-W>j
+cnoremap <leader>k <C-W>k
+cnoremap <leader>l <C-W>l
+
 " }}}
 " Change Color Schemes {{{
 
@@ -107,8 +113,11 @@ vnoremap <leader>c "+y
 " Remove a buffer
 nnoremap <leader>x :bd<CR>
 
-" Make a pane just a little bigger:
-nnoremap <leader>+ :resize+10<CR>
+" Make a pane just a little bigger/smaller:
+nnoremap <leader>+ :vertical resize+10<CR>
+nnoremap <leader>_ :vertical resize-10<CR>
+nnoremap <leader>= :resize+10<CR>
+nnoremap <leader>- :resize-10<CR>
 
 " Toggle Indent Guides
 nnoremap <leader>t :IndentGuidesToggle<CR>
