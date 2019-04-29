@@ -22,7 +22,12 @@ DEFAULT_USER="jem"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
-# A little something for auto-setting the term title
+
+# function precmd () {
+#   window_title="\033]0;${PWD##*/}\007"
+#   echo -ne "$window_title"
+# }
+
 echo -n -e "\033]0;  \007"
 
 # Uncomment the following line to enable command auto-correction.
@@ -98,11 +103,50 @@ export NVM_DIR="/Users/jem/.nvm"
 # Homebrew's sbin needs to be in path
 export PATH="/usr/local/sbin:$PATH"
 
+# sendwithus cli
+export PATH="$PATH:/Users/jem/Sites/swu/tool-cli"
+
+# pyenv and pyenv virtualenv-init - Python Environment Settings
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Working with javascript and package managers
 alias yn="yarn run"
 alias nr="npm run"
+
+# Work aliases
+alias swu-web="cd ~/Sites/swu/web-app;pyenv activate sendwithus-web-app"
+alias swu-static="cd ~/Sites/swu/static-app"
+
+# Battlesnake Shortcuts
+alias jem-snek="cd /Users/jem/Sites/swu/bs/battlesnake.js"
+alias run-snek="docker run -it -p 4000:4000 battle_snake_server"
+alias snek="cd /Users/jem/Sites/swu/bs/sneksnak"
+alias clrvim="rm ~/.dotfiles/vim/tmp/swap/*"
+
+# Work env vars
+# export SWU_AWS_ACCESS_KEY_ID=AKIAI2MUBBOURBV7B2KA
+# export SWU_AWS_SECRET_ACCESS_KEY=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
+
+# export AWS_SECRET_ACCESS_KEY=$SWU_AWS_SECRET_ACCESS_KEY
+# export AWS_ACCESS_KEY_ID=$SWU_AWS_ACCESS_KEY_ID
+
+export SWU_STRIPE_SECRET="sk_test_9psS6B9uwMVxfX8dkPhW8351"
+export SWU_STRIPE_PUBLISHABLE="pk_test_jX8YbjoSaKOfzIuzRQc9fA0O"
+
+export KUBECONFIG=$KUBECONFIG:~/.kube/production.kubeconfig
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jem/.nvm/versions/node/v8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jem/.nvm/versions/node/v8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jem/.nvm/versions/node/v8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jem/.nvm/versions/node/v8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
 # Using `hub` with git
 eval "$(hub alias -s)"
 # Source the completions in `~/.zsh/completions/_hub`
@@ -112,3 +156,22 @@ autoload -U compinit && compinit
 
 # ZSH Autocompletions, installed separately
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+function navi () {
+  node ~/Sites/misc/navi/dist/index.js "$@"
+  if [ "$?" -eq "3"  ]; then
+    echo "we know we're going to"
+    node ~/Sites/misc/navi/dist/output.js
+    cd $(node ~/Sites/misc/navi/dist/output.js)
+  fi
+  # navi "$@"
+  # PREVIOUS_DIR=$(pwd)
+  # echo "Know where you come from:"$PREVIOUS_DIR
+  # echo "path"
+  # echo  "hi:"$PATHTOVISIT
+
+  # eval "cd $PATHTOVISIT"
+  # echo "We moved!"
+}
+
+export ASANA_ACCESS_TOKEN="0/aebbf086cafd449e3eda0db87b373544"

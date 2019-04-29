@@ -143,9 +143,14 @@ let g:UltiSnipsEditSplit= "context"
 
 " }}}
 " Prettier (JS Formatter) {{{
+autocmd FileType javascript setlocal formatprg=./node_modules/.bin/prettier\
+autocmd FileType javascript.jsx setlocal formatprg=./node_modules/.bin/prettier\ 
+
 " }}}
 " Typescript {{{
 
+autocmd FileType typescript setlocal formatprg=./node_modules/.bin/prettier\ 
+autocmd FileType typescript.jsx setlocal formatprg=./node_modules/.bin/prettier\ 
 autocmd BufNewFile,BufReadPost *.tsx set filetype=typescript.jsx
 autocmd BufNewFile,BufReadPost *.ts set filetype=typescript
 

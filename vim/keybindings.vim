@@ -7,6 +7,9 @@ nnoremap <SPACE> <Nop>
 " Bind space to the leader key
 let mapleader = "\<Space>"
 
+nnoremap <leader>f 0f{V%
+nnoremap <M-LeftMouse> <C-]>
+
 " Map config files to function keys {{{
 " Open and Write configuration files quickly
 nnoremap <F12> :e ~/.dotfiles/vim/vimrc<CR>
@@ -20,8 +23,10 @@ nnoremap <S-F10> :source ~/.dotfiles/vim/keybindings.vim <bar> :echo "Sourced Ke
 nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc file"<CR>
 
 " Put the gdiff into a vertical split
-nnoremap <leader>d v;Gdiff
- kc
+nnoremap <leader>d v;Gdiff kc
+
+" Open a common scratch file
+nnoremap <F8> :e ~/Desktop/.scratch.md<CR>
 
 " GITGUTTER commands to navigate hunks
 " Jump to next / prev hunks
