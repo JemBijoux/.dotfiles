@@ -87,10 +87,9 @@ function! BuildYCM(info)
   endif
 endfunction
 " }}}
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-" Still evaluating whether we need this or not, maybe we can learn to love
-" built in autocompletion. However, if you do want to install YouCompleteMe
-" this will ensure it's loaded and built propertly from the start.
+
+" YCM hasn't been good to me recently
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 call plug#end()
 

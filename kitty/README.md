@@ -27,3 +27,18 @@ include ~/.dotfiles/kitty/custom.conf
 
 To add it quickly:
 `echo "include ~/.dotfiles/kitty/custom.conf" >> ~/.config/kitty/kitty.conf`
+
+## Tmux Italic Font Support
+
+To make italics show up correctly within kitty, we need to update our terminfo
+with the supplied values. (This was pulled from [these
+directions](https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be).)
+
+There are two files in this directory with the terminfo details.
+
+- tmux-256color.terminfo
+- xterm-256color-italic.terminfo
+
+Run `./tic-script` to run the two tic commands, which add the necessary information to the terminfo database.
+
+This should be all you need to do for kitty. If using iterm, there are more directions on the page...

@@ -21,7 +21,6 @@ nnoremap <S-F9> :source ~/.dotfiles/vim/gvimrc<CR> \| :echo "Sourced .gvimrc fil
 
 " Put the gdiff into a vertical split
 nnoremap <leader>d v;Gdiff
- kc
 
 " GITGUTTER commands to navigate hunks
 " Jump to next / prev hunks
