@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/jem/.oh-my-zsh
+alias poop='echo "I miss John."'
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -107,8 +108,19 @@ alias nr="npm run"
 eval "$(hub alias -s)"
 # Source the completions in `~/.zsh/completions/_hub`
 # https://github.com/github/hub/tree/master/etc
-fpath=(~/.zsh/completions $fpath) 
+fpath=(~/.dotfiles/zsh/completions $fpath) 
 autoload -U compinit && compinit
 
 # ZSH Autocompletions, installed separately
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Useful aliases:
+alias ia='open $1 -a /Applications/iA\ Writer.app'
+alias clic='$EDITOR ~/.zshrc && source ~/.zshrc && echo "Cli Config Complete"' #cli-confif
+
+
+export VOLTA_HOME="$HOME/.volta"
+[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
+
+export PATH="$VOLTA_HOME/bin:$PATH"
+

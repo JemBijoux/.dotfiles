@@ -1,4 +1,4 @@
-" Jem Bijoux's VIMRC
+" Jem Bezooyen's VIMRC
 " Basic VIM Configuration
 " WIP (probably forever)
 
@@ -159,8 +159,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
         \ | wincmd p | diffthis
 endif
-
-
 
 " }}}
 "
